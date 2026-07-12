@@ -1,0 +1,242 @@
+.hero {
+  border-bottom: 1px solid var(--linea);
+  padding-block: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 20ch;
+}
+
+.subtitle {
+  margin-top: 1.25rem;
+  color: var(--grafito);
+  font-size: 1.0625rem;
+  max-width: 46ch;
+  line-height: 1.6;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  border-radius: 4px;
+  border: 1px solid var(--tinta);
+  white-space: nowrap;
+}
+
+.ctaPrimary {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.ctaPrimary:hover {
+  background: #10171f;
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--tinta);
+}
+
+.ctaSecondary:hover {
+  background: var(--linea);
+}
+
+/* --- Document extraction demo --- */
+
+.demo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.rawCard,
+.structuredCard {
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.rawCard {
+  background: #fbfbfa;
+}
+
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grafito);
+  margin-bottom: 0.75rem;
+}
+
+.rawLines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rawLine {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--grafito);
+  opacity: 0.5;
+  filter: blur(0.3px);
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.structuredCard {
+  position: relative;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding-block: 0.25rem;
+  border-bottom: 1px dashed var(--linea);
+  opacity: 0;
+  transform: translateY(6px);
+  animation: reveal-row 0.4s ease forwards;
+}
+
+.fieldRow:last-child {
+  border-bottom: none;
+}
+
+.fieldRow:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.fieldRow:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.fieldRow:nth-child(3) {
+  animation-delay: 0.85s;
+}
+.fieldRow:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.fieldRow:nth-child(5) {
+  animation-delay: 1.55s;
+}
+
+@keyframes reveal-row {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fieldKey {
+  color: var(--grafito);
+  min-width: 5rem;
+}
+
+.fieldKey::after {
+  content: " →";
+}
+
+.fieldValue {
+  color: var(--tinta);
+  font-weight: 500;
+}
+
+.verifiedValue {
+  color: var(--verificado);
+}
+
+.seal {
+  position: absolute;
+  top: -0.9rem;
+  right: -0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 2px solid var(--sello);
+  border-radius: 50%;
+  color: var(--sello);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-8deg);
+  background: var(--papel);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fieldRow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: 5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 3.25rem;
+  }
+}

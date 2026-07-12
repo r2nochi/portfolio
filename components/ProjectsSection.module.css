@@ -1,0 +1,103 @@
+.section {
+  padding-block: 3.5rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  max-width: 30ch;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.card {
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code {
+  font-size: 0.75rem;
+  color: var(--grafito);
+  letter-spacing: 0.05em;
+}
+
+.status {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statusProduction {
+  color: var(--verificado);
+}
+
+.statusBuilding {
+  color: var(--grafito);
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  color: var(--grafito);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.stack {
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--tinta);
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--linea);
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--tinta);
+}
+
+.link:hover {
+  color: var(--grafito);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

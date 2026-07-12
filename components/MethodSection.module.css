@@ -1,0 +1,57 @@
+.section {
+  padding-block: 3.5rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  margin-bottom: 2rem;
+}
+
+.items {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itemLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--tinta);
+  font-weight: 500;
+}
+
+.itemText {
+  color: var(--grafito);
+  font-size: 0.9375rem;
+}
+
+.closing {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--grafito);
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
