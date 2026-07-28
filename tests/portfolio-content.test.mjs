@@ -155,6 +155,7 @@ test("las seis entradas fuera de PR-02 permanecen idénticas", async () => {
     .update(JSON.stringify(snapshot))
     .digest("hex");
 
-  // Actualizado el 27-jul-2026 al incorporar PR-05 (sunat-mcp).
-  assert.equal(digest, "72857d364f22d5e10d1e1c43c1e9ddceec91bb7806c4a17b1cc7c765fde8de07");
+  // 27-jul-2026: se incorpora PR-05 (sunat-mcp).
+  // 28-jul-2026: PR-01 estrena demoUrl (DocuExtract desplegado en Render).
+  assert.equal(digest, "7635e1f634a856b1affef48f03c0afdc8fa630c8dba8da53ba0d5405834ce0fe");
 });
