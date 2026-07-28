@@ -1,32 +1,29 @@
 import Link from "next/link";
-import type { Dictionary } from "@/lib/i18n/types";
-import styles from "./Header.module.css";
+import type { Dictionary, Locale } from "@/lib/i18n/types";
 
-export default function Header({ dict }: { dict: Dictionary }) {
+export default function Header({
+  dict,
+  locale,
+}: {
+  dict: Dictionary;
+  locale: Locale;
+}) {
+  const home = locale === "en" ? "/en" : "/";
+
   return (
-    <header className={styles.header}>
-      <div className={`container ${styles.inner}`}>
-        <span className={`mono ${styles.brand}`}>{dict.nav.brand}</span>
-        <nav className={styles.nav}>
-          <a className={styles.link} href="#proyectos">
-            {dict.nav.projects}
-          </a>
-          <a className={styles.link} href="#metodo">
-            {dict.nav.method}
-          </a>
-          <a className={styles.link} href="#contacto">
-            {dict.nav.contact}
-          </a>
-          <span className={styles.divider} aria-hidden="true" />
-          <span className={styles.langGroup}>
-            <span className={styles.langCurrent} aria-current="page">
-              {dict.nav.langName}
-            </span>
-            <span aria-hidden="true">/</span>
-            <Link className={styles.langLink} href={dict.nav.otherLangHref}>
-              {dict.nav.otherLangName}
-            </Link>
-          </span>
+    <header className="site-header">
+      <div className="container header-inner">
+        <Link className="brand mono" href={home} aria-label={dict.nav.brand}>
+          <span className="brand-dot" aria-hidden="true" />
+          {dict.nav.brand}
+        </Link>
+        <nav className="header-nav" aria-label="Principal">
+          <a href={`${home}#evidencia`}>{dict.nav.work}</a>
+          <a href={`${home}#metodo`}>{dict.nav.method}</a>
+          <a href={`${home}#contacto`}>{dict.nav.contact}</a>
+          <Link className="language-link mono" href={dict.nav.languageHref}>
+            {dict.nav.language}
+          </Link>
         </nav>
       </div>
     </header>

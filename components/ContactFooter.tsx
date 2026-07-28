@@ -1,56 +1,29 @@
 import type { Dictionary } from "@/lib/i18n/types";
-import styles from "./ContactFooter.module.css";
+
+const links = [
+  ["EMAIL", "mailto:arturonochi@gmail.com"],
+  ["GITHUB", "https://github.com/r2nochi"],
+  ["LINKEDIN", "https://www.linkedin.com/in/r2nochi/"],
+  ["WHATSAPP", "https://wa.me/51997378847"],
+];
 
 export default function ContactFooter({ dict }: { dict: Dictionary }) {
   return (
-    <footer id="contacto" className={styles.footer} aria-labelledby="contact-title">
+    <footer id="contacto" className="contact-footer">
       <div className="container">
-        <p className={`eyebrow ${styles.eyebrow}`}>{dict.contact.eyebrow}</p>
-        <h2 id="contact-title" className={styles.title}>
-          {dict.contact.title}
-        </h2>
-
-        <ul className={styles.links}>
-          <li className={styles.linkItem}>
-            <a
-              className={`mono ${styles.link}`}
-              href="https://wa.me/51997378847"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.contact.links.whatsapp}
+        <p className="eyebrow">{dict.contact.eyebrow}</p>
+        <h2>{dict.contact.title}</h2>
+        <p className="contact-copy">{dict.contact.text}</p>
+        <div className="contact-links">
+          {links.map(([label, href]) => (
+            <a key={label} className="mono" href={href}>
+              {label} <span aria-hidden="true">↗</span>
             </a>
-          </li>
-          <li className={styles.linkItem}>
-            <a className={`mono ${styles.link}`} href="mailto:arturonochi@gmail.com">
-              {dict.contact.links.email}
-            </a>
-          </li>
-          <li className={styles.linkItem}>
-            <a
-              className={`mono ${styles.link}`}
-              href="https://github.com/r2nochi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.contact.links.github}
-            </a>
-          </li>
-          <li className={styles.linkItem}>
-            <a
-              className={`mono ${styles.link}`}
-              href="https://www.linkedin.com/in/r2nochi/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.contact.links.linkedin}
-            </a>
-          </li>
-        </ul>
-
-        <div className={styles.bottom}>
-          <p className={`mono ${styles.availability}`}>{dict.contact.availability}</p>
-          <p className={`mono ${styles.rights}`}>{dict.contact.rights}</p>
+          ))}
+        </div>
+        <div className="footer-meta mono">
+          <span>{dict.contact.availability}</span>
+          <span>{dict.contact.rights}</span>
         </div>
       </div>
     </footer>

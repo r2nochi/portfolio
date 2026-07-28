@@ -1,0 +1,227 @@
+[
+  {
+    "code": "PR-01",
+    "slug": "docuextract",
+    "kind": "product",
+    "status": "source-available",
+    "published": true,
+    "title": { "es": "DocuExtract", "en": "DocuExtract" },
+    "kicker": {
+      "es": "OCR documental auditable",
+      "en": "Auditable document OCR"
+    },
+    "problem": {
+      "es": "Contadores y pymes aún transcriben facturas peruanas a hojas de cálculo: un proceso lento, repetitivo y propenso a errores.",
+      "en": "Accountants and small businesses still transcribe Peruvian invoices into spreadsheets: a slow, repetitive, error-prone process."
+    },
+    "solution": {
+      "es": "Pipeline Python que detecta PDFs digitales o escaneados, extrae campos fiscales, valida montos y exporta un Excel con trazabilidad.",
+      "en": "A Python pipeline that detects digital or scanned PDFs, extracts tax fields, validates amounts, and exports a traceable Excel workbook."
+    },
+    "impact": {
+      "es": "Convierte digitación manual en revisión asistida y conserva advertencias y confianza por documento.",
+      "en": "Turns manual entry into assisted review while preserving warnings and confidence per document."
+    },
+    "limitations": {
+      "es": "La precisión depende de la calidad del escaneo y del layout. Los resultados deben revisarse antes de usarse contablemente.",
+      "en": "Accuracy depends on scan quality and layout. Results must be reviewed before accounting use."
+    },
+    "capabilities": ["OCR", "FastAPI", "Excel", "Docker", "Tests"],
+    "stack": ["Python", "FastAPI", "Tesseract", "pypdfium2", "Docker"],
+    "evidence": [
+      { "label": "tests", "value": "pytest" },
+      { "label": "api", "value": "/extract · /excel · /health" },
+      { "label": "privacy", "value": "temporary files deleted" }
+    ],
+    "repoUrl": "https://github.com/r2nochi/docuextract"
+  },
+  {
+    "code": "PR-02",
+    "slug": "clausula-clara",
+    "kind": "product",
+    "status": "planned",
+    "published": false,
+    "title": { "es": "Cláusula Clara", "en": "Clear Clause" },
+    "kicker": { "es": "Búsqueda normativa extractiva", "en": "Extractive regulatory search" },
+    "problem": {
+      "es": "La búsqueda manual en normativa laboral extensa dificulta encontrar rápidamente la regla aplicable.",
+      "en": "Manual searching through extensive labor regulations makes it difficult to find the applicable rule quickly."
+    },
+    "solution": {
+      "es": "Recuperación local con BM25 sobre fuentes del MTPE, con respuesta extractiva, página y enlace a la fuente.",
+      "en": "Local BM25 retrieval over MTPE sources, with an extractive answer, page number, and source link."
+    },
+    "impact": {
+      "es": "Mejora la trazabilidad y reduce la búsqueda manual sin afirmar tiempos no medidos.",
+      "en": "Improves traceability and reduces manual searching without claiming unmeasured time savings."
+    },
+    "limitations": {
+      "es": "Cubre dos publicaciones oficiales y un benchmark pequeño; no es asesoría legal y el 0.80 no deja margen de rechazo. La coincidencia de cita solo comprueba source_id, no la relevancia semántica de página o fragmento.",
+      "en": "It covers two official publications and a small benchmark; it is not legal advice, and 0.80 leaves no rejection margin. Citation matching checks source_id only, not the semantic relevance of a page or excerpt."
+    },
+    "capabilities": ["Evaluation", "PDF ingestion", "Accessible interface", "Citations"],
+    "stack": ["Python", "FastAPI", "BM25", "Pydantic", "pypdfium2", "Vanilla JS"],
+    "evidence": [
+      { "label": "benchmark", "value": "20 preguntas" },
+      { "label": "citation match", "value": "document-level citation match 100% / coincidencia de cita a nivel de documento 100%" },
+      { "label": "rejection accuracy", "value": "rejection accuracy 80%" }
+    ]
+  },
+  {
+    "code": "PR-03",
+    "slug": "turno-facil",
+    "kind": "product",
+    "status": "planned",
+    "published": false,
+    "title": { "es": "TurnoFácil", "en": "Easy Booking" },
+    "kicker": { "es": "Reservas para negocios locales", "en": "Bookings for local businesses" },
+    "problem": {
+      "es": "Negocios locales coordinan citas manualmente por mensajería.",
+      "en": "Local businesses coordinate appointments manually through messaging."
+    },
+    "solution": {
+      "es": "Agenda pública, disponibilidad y panel operativo.",
+      "en": "Public schedule, availability, and operations dashboard."
+    },
+    "impact": {
+      "es": "Menos cruces de horario y seguimiento manual.",
+      "en": "Fewer scheduling conflicts and less manual follow-up."
+    },
+    "limitations": {
+      "es": "Los recordatorios dependen del proveedor de mensajería.",
+      "en": "Reminders depend on the messaging provider."
+    },
+    "capabilities": ["Full stack", "PostgreSQL", "Auth"],
+    "stack": ["Next.js", "Supabase", "PostgreSQL"],
+    "evidence": [{ "label": "target", "value": "end-to-end booking flow" }]
+  },
+  {
+    "code": "PR-04",
+    "slug": "radar-oportunidades",
+    "kind": "product",
+    "status": "planned",
+    "published": false,
+    "title": { "es": "Radar de Oportunidades", "en": "Opportunity Radar" },
+    "kicker": { "es": "Automatización con trazabilidad", "en": "Traceable automation" },
+    "problem": {
+      "es": "Revisar oportunidades en múltiples fuentes consume tiempo diario.",
+      "en": "Reviewing opportunities across multiple sources takes time every day."
+    },
+    "solution": {
+      "es": "Flujo programado que normaliza, clasifica y resume fuentes permitidas.",
+      "en": "Scheduled workflow that normalizes, classifies, and summarizes allowed sources."
+    },
+    "impact": {
+      "es": "Un digest priorizado en lugar de búsquedas repetidas.",
+      "en": "One prioritized digest instead of repeated searches."
+    },
+    "limitations": {
+      "es": "Solo integra fuentes con acceso autorizado.",
+      "en": "Only integrates sources with authorized access."
+    },
+    "capabilities": ["Automation", "LLM", "CI/CD"],
+    "stack": ["GitHub Actions", "Supabase", "n8n"],
+    "evidence": [{ "label": "target", "value": "exportable workflow + run log" }]
+  },
+  {
+    "code": "PR-05",
+    "slug": "sunat-mcp",
+    "kind": "product",
+    "status": "source-available",
+    "published": true,
+    "title": { "es": "sunat-mcp", "en": "sunat-mcp" },
+    "kicker": {
+      "es": "Consulta de RUC sin filtrar datos",
+      "en": "RUC lookup without leaking data"
+    },
+    "problem": {
+      "es": "Validar RUCs es trabajo diario en cualquier estudio contable. Las alternativas o scrapean la web de SUNAT, que es frágil, o usan APIs de terceros a las que hay que enviarles los RUCs de los clientes.",
+      "en": "Validating tax IDs is daily work in any accounting firm. The alternatives either scrape SUNAT's website, which is brittle, or rely on third-party APIs that require sending client tax IDs to an outside service."
+    },
+    "solution": {
+      "es": "Servidor MCP que indexa localmente el Padrón Reducido publicado por SUNAT como datos abiertos, y expone validación de dígito verificador y consulta de contribuyente como herramientas para un agente.",
+      "en": "An MCP server that locally indexes the Padrón Reducido published by SUNAT as open data, exposing check-digit validation and taxpayer lookup as agent tools."
+    },
+    "impact": {
+      "es": "18,297,300 contribuyentes indexados y consulta en 0.2 ms. Ninguna consulta sale de la máquina del usuario.",
+      "en": "18,297,300 taxpayers indexed with 0.2 ms lookups. No query ever leaves the user's machine."
+    },
+    "limitations": {
+      "es": "El padrón es una foto periódica, no un servicio en vivo: un RUC creado después de la última ingesta no aparece. La validación de dígito verificador es aritmética y no prueba que el RUC exista. La búsqueda por subcadena recorre la tabla completa y tarda decenas de segundos.",
+      "en": "The registry is a periodic snapshot, not a live service: a tax ID created after the last ingest will not appear. Check-digit validation is arithmetic and does not prove the tax ID exists. Substring search scans the full table and takes tens of seconds."
+    },
+    "capabilities": ["MCP", "SQLite", "Provenance", "Tests"],
+    "stack": ["Python", "MCP SDK", "SQLite", "pytest"],
+    "evidence": [
+      { "label": "registros", "value": "18,297,300 contribuyentes" },
+      { "label": "consulta", "value": "0.2 ms (SEARCH, covering index)" },
+      { "label": "tests", "value": "42 pytest" },
+      { "label": "privacidad", "value": "sin red en tiempo de consulta" }
+    ],
+    "repoUrl": "https://github.com/r2nochi/sunat-mcp"
+  },
+  {
+    "code": "CS-01",
+    "slug": "embudo-seguros",
+    "kind": "case-study",
+    "status": "anonymized",
+    "published": true,
+    "title": { "es": "Embudo digital de seguros", "en": "Digital insurance funnel" },
+    "kicker": { "es": "Caso profesional anonimizado", "en": "Anonymized professional case" },
+    "problem": {
+      "es": "Una cotización compleja necesitaba guiar al usuario sin perder contexto entre pasos.",
+      "en": "A complex quote flow needed to guide users without losing context between steps."
+    },
+    "solution": {
+      "es": "Arquitectura frontend por etapas, persistencia controlada y validaciones antes de cada transición.",
+      "en": "Step-based frontend architecture, controlled persistence, and validation before each transition."
+    },
+    "impact": {
+      "es": "Flujo más mantenible, estados explícitos y menos regresiones durante cambios.",
+      "en": "A more maintainable flow, explicit states, and fewer regressions during changes."
+    },
+    "limitations": {
+      "es": "Se omiten métricas, nombres, capturas y reglas comerciales por confidencialidad.",
+      "en": "Metrics, names, screenshots, and business rules are omitted for confidentiality."
+    },
+    "capabilities": ["Frontend", "State", "Validation", "UX"],
+    "stack": ["JavaScript", "Responsive UI", "API integration"],
+    "evidence": [
+      { "label": "scope", "value": "multi-step journey" },
+      { "label": "quality", "value": "state + transition guards" },
+      { "label": "disclosure", "value": "anonymized" }
+    ]
+  },
+  {
+    "code": "CS-02",
+    "slug": "flujo-agentes",
+    "kind": "case-study",
+    "status": "anonymized",
+    "published": true,
+    "title": { "es": "Flujo Agentes", "en": "Agent Workflow" },
+    "kicker": { "es": "Orquestación y observabilidad", "en": "Orchestration and observability" },
+    "problem": {
+      "es": "Los flujos de desarrollo con IA pierden contexto, repiten trabajo y dificultan revisar quién decidió qué.",
+      "en": "AI-assisted development flows lose context, repeat work, and make it hard to review who decided what."
+    },
+    "solution": {
+      "es": "Loop con orquestador, ejecutores económicos, revisión fuerte, evidencia por etapa y límites de concurrencia.",
+      "en": "A loop with an orchestrator, economical executors, strong review, stage evidence, and concurrency limits."
+    },
+    "impact": {
+      "es": "Decisiones recuperables, entregas verificables y uso de modelos costosos solo donde agregan valor.",
+      "en": "Recoverable decisions, verifiable delivery, and expensive models used only where they add value."
+    },
+    "limitations": {
+      "es": "La reducción de costo es una hipótesis operativa hasta medir tokens y retrabajo en ejecuciones comparables.",
+      "en": "Cost reduction remains an operational hypothesis until tokens and rework are measured across comparable runs."
+    },
+    "capabilities": ["Agents", "TDD", "Review", "Observability"],
+    "stack": ["Codex", "Markdown", "JSONL", "Git"],
+    "evidence": [
+      { "label": "threads", "value": "max 3" },
+      { "label": "depth", "value": "max 1" },
+      { "label": "gates", "value": "human on cost, secrets, deploy" }
+    ]
+  }
+]

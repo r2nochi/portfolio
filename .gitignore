@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.npm-cache
 /.pnp
 .pnp.*
 .yarn/*
@@ -35,6 +36,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# directorios de trabajo de agentes (no van al repo publico)
+/.codex
+/.superpowers
 
 # typescript
 *.tsbuildinfo

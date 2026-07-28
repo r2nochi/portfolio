@@ -1,9 +1,9 @@
+import type { Dictionary, Locale } from "@/lib/i18n/types";
+import ContactFooter from "./ContactFooter";
 import Header from "./Header";
 import Hero from "./Hero";
-import ProjectsSection from "./ProjectsSection";
 import MethodSection from "./MethodSection";
-import ContactFooter from "./ContactFooter";
-import type { Dictionary, Locale } from "@/lib/i18n/types";
+import PortfolioSection from "./PortfolioSection";
 
 export default function PageContent({
   dict,
@@ -14,11 +14,11 @@ export default function PageContent({
 }) {
   return (
     <>
-      <Header dict={dict} />
+      <Header dict={dict} locale={locale} />
       <main>
-        <Hero dict={dict} />
-        <ProjectsSection dict={dict} locale={locale} />
-        <MethodSection dict={dict} />
+        <Hero dict={dict} locale={locale} />
+        <PortfolioSection dict={dict} locale={locale} />
+        <MethodSection dict={dict} locale={locale} />
       </main>
       <ContactFooter dict={dict} />
     </>
