@@ -158,8 +158,10 @@
       { "label": "registros", "value": "18,297,300 contribuyentes" },
       { "label": "consulta", "value": "0.2 ms (SEARCH, covering index)" },
       { "label": "tests", "value": "42 pytest" },
-      { "label": "privacidad", "value": "sin red en tiempo de consulta" }
+      { "label": "privacidad", "value": "sin red en tiempo de consulta" },
+      { "label": "pypi", "value": "pip install mcp-sunat" }
     ],
+    "demoUrl": "https://pypi.org/project/mcp-sunat/",
     "repoUrl": "https://github.com/r2nochi/sunat-mcp"
   },
   {
