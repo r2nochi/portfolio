@@ -9,10 +9,10 @@ async function loadItems() {
   return JSON.parse(await readFile(contentUrl, "utf8"));
 }
 
-test("el portafolio conserva el alcance aprobado de 5 productos y 2 casos", async () => {
+test("el portafolio conserva el alcance aprobado de 6 productos y 2 casos", async () => {
   const items = await loadItems();
 
-  assert.equal(items.filter((item) => item.kind === "product").length, 5);
+  assert.equal(items.filter((item) => item.kind === "product").length, 6);
   assert.equal(items.filter((item) => item.kind === "case-study").length, 2);
 });
 
@@ -163,13 +163,13 @@ test("PR-02 conserva la evidencia real del MVP sin publicarlo", async () => {
   assert.equal(/Embeddings|Vector search/i.test(serializedItem), false);
 });
 
-test("las seis entradas fuera de PR-02 permanecen idénticas", async () => {
+test("las siete entradas fuera de PR-02 permanecen idénticas", async () => {
   const items = await loadItems();
   const snapshot = items.filter((item) => item.code !== "PR-02");
 
   assert.deepEqual(
     snapshot.map((item) => item.code),
-    ["PR-01", "PR-03", "PR-04", "PR-05", "CS-01", "CS-02"],
+    ["PR-01", "PR-03", "PR-04", "PR-05", "PR-06", "CS-01", "CS-02"],
   );
 
   const digest = createHash("sha256")
@@ -178,5 +178,6 @@ test("las seis entradas fuera de PR-02 permanecen idénticas", async () => {
 
   // 27-jul-2026: se incorpora PR-05 (sunat-mcp).
   // 28-jul-2026: PR-01 estrena demoUrl (DocuExtract desplegado en Render).
-  assert.equal(digest, "7635e1f634a856b1affef48f03c0afdc8fa630c8dba8da53ba0d5405834ce0fe");
+  // 28-jul-2026: se incorpora PR-06 (anatomia-factura).
+  assert.equal(digest, "3c17e7209bc30e2329f3f8ebd429813a8e2f5ef70509422f710ed30f30340124");
 });
