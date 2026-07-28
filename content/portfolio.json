@@ -163,6 +163,44 @@
     "repoUrl": "https://github.com/r2nochi/sunat-mcp"
   },
   {
+    "code": "PR-06",
+    "slug": "anatomia-factura",
+    "kind": "product",
+    "status": "source-available",
+    "published": true,
+    "title": { "es": "Anatomía de una factura", "en": "Anatomy of an invoice" },
+    "kicker": {
+      "es": "Narrativa técnica con scroll",
+      "en": "Technical narrative on scroll"
+    },
+    "problem": {
+      "es": "Explicar por qué extraer datos de un documento es difícil suele requerir una reunión, un diagrama y confianza del cliente. Un texto no transmite lo que ocurre entre el PDF y la hoja de cálculo.",
+      "en": "Explaining why extracting data from a document is hard usually takes a meeting, a diagram, and the client's trust. Prose does not convey what happens between the PDF and the spreadsheet."
+    },
+    "solution": {
+      "es": "Una página en cinco actos: un barrido detecta los seis campos de una factura peruana, los valores migran a una tabla estructurada y el algoritmo módulo 11 de SUNAT se ejecuta a la vista hasta que el dígito verificador encaja.",
+      "en": "A five-act page: a scan detects the six fields of a Peruvian invoice, the values migrate into a structured table, and SUNAT's modulo 11 algorithm runs on screen until the check digit locks in."
+    },
+    "impact": {
+      "es": "Convierte una explicación técnica en 60 segundos de scroll. Los marcos de detección se miden del DOM y los números del módulo 11 se calculan en vivo: nada está dibujado a mano.",
+      "en": "Turns a technical explanation into 60 seconds of scrolling. Detection frames are measured from the DOM and the modulo 11 figures are computed live: nothing is hand-drawn."
+    },
+    "limitations": {
+      "es": "Es una pieza narrativa, no un extractor: no procesa archivos. La factura es sintética y el RUC 20123456786 no pertenece a ningún contribuyente real. Con prefers-reduced-motion las escenas se muestran resueltas, sin animación intermedia.",
+      "en": "It is a narrative piece, not an extractor: it processes no files. The invoice is synthetic and tax ID 20123456786 belongs to no real taxpayer. Under prefers-reduced-motion the scenes render resolved, with no intermediate animation."
+    },
+    "capabilities": ["Scroll narrative", "Next.js", "Accesibilidad", "Motion"],
+    "stack": ["Next.js", "TypeScript", "React", "CSS"],
+    "evidence": [
+      { "label": "actos", "value": "5 escenas encadenadas" },
+      { "label": "marcos", "value": "medidos del DOM, no hardcodeados" },
+      { "label": "módulo 11", "value": "calculado en vivo, no dibujado" },
+      { "label": "reduced motion", "value": "respetado" }
+    ],
+    "demoUrl": "https://anatomia-factura.vercel.app",
+    "repoUrl": "https://github.com/r2nochi/anatomia-factura"
+  },
+  {
     "code": "CS-01",
     "slug": "embudo-seguros",
     "kind": "case-study",
