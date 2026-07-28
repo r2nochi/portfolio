@@ -608,6 +608,12 @@ input {
   font-size: 0.72rem;
 }
 
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .case-repo {
   display: inline-flex;
   margin-top: 2rem;
