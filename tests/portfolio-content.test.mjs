@@ -179,5 +179,6 @@ test("las siete entradas fuera de PR-02 permanecen idénticas", async () => {
   // 27-jul-2026: se incorpora PR-05 (sunat-mcp).
   // 28-jul-2026: PR-01 estrena demoUrl (DocuExtract desplegado en Render).
   // 28-jul-2026: se incorpora PR-06 (anatomia-factura).
-  assert.equal(digest, "3c17e7209bc30e2329f3f8ebd429813a8e2f5ef70509422f710ed30f30340124");
+  // 28-jul-2026: PR-05 estrena demoUrl (mcp-sunat publicado en PyPI).
+  assert.equal(digest, "1f387b8aa65603d07381bebf1d4e997b7efe23c96ef7ba17410a01d54e9075ba");
 });
