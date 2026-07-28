@@ -37,6 +37,7 @@ export type Dictionary = {
     evidence: string;
     impact: string;
     limitations: string;
+    demo: string;
     repository: string;
     nextCase: string;
   };

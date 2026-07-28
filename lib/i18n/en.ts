@@ -43,6 +43,7 @@ export const en: Dictionary = {
     evidence: "Evidence",
     impact: "Impact",
     limitations: "Honest limitations",
+    demo: "Try the demo",
     repository: "View repository",
     nextCase: "Next case file",
   },

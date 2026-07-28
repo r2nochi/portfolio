@@ -16,6 +16,27 @@ test("el portafolio conserva el alcance aprobado de 5 productos y 2 casos", asyn
   assert.equal(items.filter((item) => item.kind === "case-study").length, 2);
 });
 
+test("la ficha de proyecto renderiza demoUrl y repoUrl si existen", async () => {
+  // Regresion: demoUrl estaba en el tipo y en los datos, pero CasePage solo
+  // pintaba repoUrl. El enlace a la demo quedaba invisible en la web.
+  const casePage = await readFile(
+    new URL("../components/CasePage.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(casePage, /item\.demoUrl/, "CasePage no usa item.demoUrl");
+  assert.match(casePage, /href=\{item\.demoUrl\}/, "demoUrl no se enlaza");
+  assert.match(casePage, /href=\{item\.repoUrl\}/, "repoUrl no se enlaza");
+
+  for (const locale of ["es", "en"]) {
+    const dict = await readFile(
+      new URL(`../lib/i18n/${locale}.ts`, import.meta.url),
+      "utf8",
+    );
+    assert.match(dict, /demo:\s*"/, `falta la etiqueta demo en ${locale}`);
+  }
+});
+
 test("cada pieza publicada declara evidencia verificable y sus limites", async () => {
   const items = await loadItems();
 

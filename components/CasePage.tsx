@@ -70,16 +70,30 @@ export default function CasePage({
                 </li>
               ))}
             </ul>
-            {item.repoUrl && (
-              <a
-                className="button button-primary case-repo"
-                href={item.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {dict.detail.repository} ↗
-              </a>
-            )}
+            <div className="case-actions">
+              {item.demoUrl && (
+                <a
+                  className="button button-primary case-repo"
+                  href={item.demoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {dict.detail.demo} ↗
+                </a>
+              )}
+              {item.repoUrl && (
+                <a
+                  className={`button case-repo ${
+                    item.demoUrl ? "button-ghost" : "button-primary"
+                  }`}
+                  href={item.repoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {dict.detail.repository} ↗
+                </a>
+              )}
+            </div>
           </section>
           <section className="case-block">
             <h2>04 / {dict.detail.impact}</h2>
