@@ -23,16 +23,18 @@
       "en": "Turns manual entry into assisted review while preserving warnings and confidence per document."
     },
     "limitations": {
-      "es": "La precisión depende de la calidad del escaneo y del layout. Los resultados deben revisarse antes de usarse contablemente.",
-      "en": "Accuracy depends on scan quality and layout. Results must be reviewed before accounting use."
+      "es": "La precisión depende de la calidad del escaneo y del layout. Los resultados deben revisarse antes de usarse contablemente. La demo corre en un plan gratuito que duerme el servicio tras 15 minutos sin tráfico: si tarda en abrir, está despertando.",
+      "en": "Accuracy depends on scan quality and layout. Results must be reviewed before accounting use. The demo runs on a free plan that sleeps after 15 minutes without traffic: if it is slow to open, it is waking up."
     },
     "capabilities": ["OCR", "FastAPI", "Excel", "Docker", "Tests"],
     "stack": ["Python", "FastAPI", "Tesseract", "pypdfium2", "Docker"],
     "evidence": [
-      { "label": "tests", "value": "pytest" },
+      { "label": "tests", "value": "62 pytest" },
       { "label": "api", "value": "/extract · /excel · /health" },
+      { "label": "facturas reales", "value": "3 verificadas en producción" },
       { "label": "privacy", "value": "temporary files deleted" }
     ],
+    "demoUrl": "https://docuextract-omot.onrender.com",
     "repoUrl": "https://github.com/r2nochi/docuextract"
   },
   {
