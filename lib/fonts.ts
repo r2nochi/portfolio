@@ -1,4 +1,11 @@
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
+
+export const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
 
 export const archivo = Archivo({
   subsets: ["latin"],
