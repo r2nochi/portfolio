@@ -9,11 +9,27 @@ async function loadItems() {
   return JSON.parse(await readFile(contentUrl, "utf8"));
 }
 
-test("el portafolio conserva el alcance aprobado de 4 productos y 2 casos", async () => {
+test("el portafolio conserva el alcance aprobado de 5 productos y 2 casos", async () => {
   const items = await loadItems();
 
-  assert.equal(items.filter((item) => item.kind === "product").length, 4);
+  assert.equal(items.filter((item) => item.kind === "product").length, 5);
   assert.equal(items.filter((item) => item.kind === "case-study").length, 2);
+});
+
+test("cada pieza publicada declara evidencia verificable y sus limites", async () => {
+  const items = await loadItems();
+
+  for (const item of items.filter((candidate) => candidate.published)) {
+    assert.ok(item.limitations.es.trim(), `${item.code} sin limites en ES`);
+    assert.ok(item.limitations.en.trim(), `${item.code} sin limites en EN`);
+    // Un producto publicado sin repo ni demo no es evidencia, es una promesa.
+    if (item.kind === "product") {
+      assert.ok(
+        item.repoUrl || item.demoUrl,
+        `${item.code} publicado sin repoUrl ni demoUrl`,
+      );
+    }
+  }
 });
 
 test("cada pieza publicada tiene una ruta, evidencia y contenido bilingue", async () => {
@@ -126,12 +142,19 @@ test("PR-02 conserva la evidencia real del MVP sin publicarlo", async () => {
   assert.equal(/Embeddings|Vector search/i.test(serializedItem), false);
 });
 
-test("las cinco entradas fuera de PR-02 permanecen idénticas", async () => {
+test("las seis entradas fuera de PR-02 permanecen idénticas", async () => {
   const items = await loadItems();
   const snapshot = items.filter((item) => item.code !== "PR-02");
+
+  assert.deepEqual(
+    snapshot.map((item) => item.code),
+    ["PR-01", "PR-03", "PR-04", "PR-05", "CS-01", "CS-02"],
+  );
+
   const digest = createHash("sha256")
     .update(JSON.stringify(snapshot))
     .digest("hex");
 
-  assert.equal(digest, "71edfc172ce273b20fe1d557588ef6eff39dad28fd239b0b0c107ac3651bdb24");
+  // Actualizado el 27-jul-2026 al incorporar PR-05 (sunat-mcp).
+  assert.equal(digest, "72857d364f22d5e10d1e1c43c1e9ddceec91bb7806c4a17b1cc7c765fde8de07");
 });

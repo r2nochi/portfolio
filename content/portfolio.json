@@ -124,6 +124,43 @@
     "evidence": [{ "label": "target", "value": "exportable workflow + run log" }]
   },
   {
+    "code": "PR-05",
+    "slug": "sunat-mcp",
+    "kind": "product",
+    "status": "source-available",
+    "published": true,
+    "title": { "es": "sunat-mcp", "en": "sunat-mcp" },
+    "kicker": {
+      "es": "Consulta de RUC sin filtrar datos",
+      "en": "RUC lookup without leaking data"
+    },
+    "problem": {
+      "es": "Validar RUCs es trabajo diario en cualquier estudio contable. Las alternativas o scrapean la web de SUNAT, que es frágil, o usan APIs de terceros a las que hay que enviarles los RUCs de los clientes.",
+      "en": "Validating tax IDs is daily work in any accounting firm. The alternatives either scrape SUNAT's website, which is brittle, or rely on third-party APIs that require sending client tax IDs to an outside service."
+    },
+    "solution": {
+      "es": "Servidor MCP que indexa localmente el Padrón Reducido publicado por SUNAT como datos abiertos, y expone validación de dígito verificador y consulta de contribuyente como herramientas para un agente.",
+      "en": "An MCP server that locally indexes the Padrón Reducido published by SUNAT as open data, exposing check-digit validation and taxpayer lookup as agent tools."
+    },
+    "impact": {
+      "es": "18,297,300 contribuyentes indexados y consulta en 0.2 ms. Ninguna consulta sale de la máquina del usuario.",
+      "en": "18,297,300 taxpayers indexed with 0.2 ms lookups. No query ever leaves the user's machine."
+    },
+    "limitations": {
+      "es": "El padrón es una foto periódica, no un servicio en vivo: un RUC creado después de la última ingesta no aparece. La validación de dígito verificador es aritmética y no prueba que el RUC exista. La búsqueda por subcadena recorre la tabla completa y tarda decenas de segundos.",
+      "en": "The registry is a periodic snapshot, not a live service: a tax ID created after the last ingest will not appear. Check-digit validation is arithmetic and does not prove the tax ID exists. Substring search scans the full table and takes tens of seconds."
+    },
+    "capabilities": ["MCP", "SQLite", "Provenance", "Tests"],
+    "stack": ["Python", "MCP SDK", "SQLite", "pytest"],
+    "evidence": [
+      { "label": "registros", "value": "18,297,300 contribuyentes" },
+      { "label": "consulta", "value": "0.2 ms (SEARCH, covering index)" },
+      { "label": "tests", "value": "42 pytest" },
+      { "label": "privacidad", "value": "sin red en tiempo de consulta" }
+    ],
+    "repoUrl": "https://github.com/r2nochi/sunat-mcp"
+  },
+  {
     "code": "CS-01",
     "slug": "embudo-seguros",
     "kind": "case-study",
