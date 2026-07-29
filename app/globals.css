@@ -366,12 +366,27 @@ input {
   gap: clamp(1rem, 4vw, 3rem);
   align-items: start;
   padding-block: 2.3rem;
-  transition: background 180ms ease, padding 180ms ease;
+  /* Se anima `transform`, no `padding`: el padding fuerza recalculo de layout
+     en cada frame y el hover se sentia pesado. transform va por GPU. */
+  transition: background 160ms ease,
+    transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.case-link:hover {
-  padding-inline: 1.2rem;
+.case-link:hover,
+.case-link:focus-visible {
   background: rgba(47, 107, 255, 0.07);
+  transform: translateX(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-link {
+    transition: background 160ms ease;
+  }
+
+  .case-link:hover,
+  .case-link:focus-visible {
+    transform: none;
+  }
 }
 
 .case-index,

@@ -40,7 +40,19 @@ export default function EvidenceGraph({
           initial={reduceMotion ? false : { opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.25 + index * 0.12, duration: 0.45 }}
-          whileHover={reduceMotion ? undefined : { scale: 1.04, y: -3 }}
+          // El hover NECESITA su propia transicion. Sin ella hereda la de
+          // entrada —incluido el `delay`— y pasar el cursor sobre el cuarto
+          // nodo esperaba 0.73 s antes de reaccionar: se sentia roto.
+          // Un muelle corto responde en el mismo frame.
+          whileHover={
+            reduceMotion
+              ? undefined
+              : {
+                  scale: 1.05,
+                  y: -4,
+                  transition: { type: "spring", stiffness: 460, damping: 24 },
+                }
+          }
         >
           <span className="node-index mono">0{index + 1}</span>
           <strong>{node}</strong>
