@@ -31,6 +31,7 @@ export type Dictionary = {
     sourceAvailable: string;
     anonymized: string;
     openCase: string;
+    liveDemo: string;
   };
   detail: {
     back: string;

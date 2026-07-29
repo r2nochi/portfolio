@@ -12,6 +12,22 @@ import type { Service } from "@/components/ServicesPage";
  */
 export const SERVICIOS_ES: Service[] = [
   {
+    code: "00 / WEB",
+    title: "Tu web en una semana",
+    description:
+      "Diseño propio, textos con tus palabras, formulario que te llega al WhatsApp y desplegada en tu dominio. Siete días, sin plantillas.",
+    deliverables: [
+      "Diseño a medida, no una plantilla de catálogo",
+      "Textos escritos con tus precios y tu voz",
+      "Formulario o catálogo conectado a lo que ya usas",
+      "Rápida en celular y legible por Google",
+      "El código es tuyo, sin permanencia",
+    ],
+    price: "Desde S/ 1,800",
+    demoUrl: "https://webs-en-una-semana.vercel.app",
+    demoLabel: "Ver cómo se construye, día por día",
+  },
+  {
     code: "01 / DIAGNÓSTICO",
     title: "Mapa de automatización",
     description:
@@ -53,6 +69,22 @@ export const SERVICIOS_ES: Service[] = [
 ];
 
 export const SERVICIOS_EN: Service[] = [
+  {
+    code: "00 / WEB",
+    title: "Your site in a week",
+    description:
+      "Custom design, copy in your own words, a form that reaches your WhatsApp, and deployed on your domain. Seven days, no templates.",
+    deliverables: [
+      "A design made for you, not a catalogue template",
+      "Copy written with your prices and your voice",
+      "Form or catalogue wired to what you already use",
+      "Fast on phones and readable by Google",
+      "The code is yours, no lock-in",
+    ],
+    price: "From S/ 1,800",
+    demoUrl: "https://webs-en-una-semana.vercel.app",
+    demoLabel: "Watch it get built, day by day",
+  },
   {
     code: "01 / DISCOVERY",
     title: "Automation map",

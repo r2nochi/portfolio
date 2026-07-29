@@ -37,6 +37,7 @@ export const es: Dictionary = {
     sourceAvailable: "CÓDIGO DISPONIBLE",
     anonymized: "ANONIMIZADO",
     openCase: "Abrir expediente",
+    liveDemo: "Ver la app en vivo",
   },
   detail: {
     back: "Volver a evidencia",
