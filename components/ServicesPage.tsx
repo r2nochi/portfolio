@@ -10,6 +10,9 @@ export type Service = {
   description: string;
   deliverables: string[];
   price: string;
+  /** Si el paquete tiene una pieza publicada que lo demuestra, se enlaza. */
+  demoUrl?: string;
+  demoLabel?: string;
 };
 
 /**
@@ -87,6 +90,19 @@ export default function ServicesPage({
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              {service.demoUrl && (
+                <a
+                  className="service-demo"
+                  href={service.demoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="case-demo-dot" aria-hidden="true" />
+                  {service.demoLabel ??
+                    (isEnglish ? "See it live" : "Verlo en vivo")}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              )}
             </article>
           ))}
         </section>

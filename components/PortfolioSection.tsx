@@ -51,6 +51,22 @@ export default function PortfolioSection({
                   {dict.portfolio.openCase} <span aria-hidden="true">↗</span>
                 </span>
               </Link>
+
+              {/* Acceso directo a la app desplegada. Va FUERA del <Link> del
+                  caso: anidar enlaces es HTML invalido y el navegador los
+                  desanida de formas impredecibles. */}
+              {item.demoUrl && (
+                <a
+                  className="case-demo"
+                  href={item.demoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="case-demo-dot" aria-hidden="true" />
+                  {dict.portfolio.liveDemo}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              )}
             </li>
           ))}
         </ol>
