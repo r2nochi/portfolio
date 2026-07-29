@@ -19,6 +19,9 @@ export default function Header({
         </Link>
         <nav className="header-nav" aria-label="Principal">
           <a href={`${home}#evidencia`}>{dict.nav.work}</a>
+          <Link className="nav-services" href={dict.nav.servicesHref}>
+            {dict.nav.services}
+          </Link>
           <a href={`${home}#metodo`}>{dict.nav.method}</a>
           <a href={`${home}#contacto`}>{dict.nav.contact}</a>
           <Link className="language-link mono" href={dict.nav.languageHref}>

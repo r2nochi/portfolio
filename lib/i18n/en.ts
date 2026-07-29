@@ -9,6 +9,8 @@ export const en: Dictionary = {
   nav: {
     brand: "DN / APPLIED AI",
     work: "Evidence",
+    services: "Services",
+    servicesHref: "/en/services",
     method: "Method",
     contact: "Contact",
     language: "ES",
